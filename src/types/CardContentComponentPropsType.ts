@@ -6,6 +6,8 @@ type CardContentComponentPropsType = {
   onToggleContact: (id: string) => void;
   selectedIds: Set<string>;
   isInitialLoading: boolean;
+  loadMoreContacts: () => void;
+  loading: boolean;
 };
 
 export default CardContentComponentPropsType;

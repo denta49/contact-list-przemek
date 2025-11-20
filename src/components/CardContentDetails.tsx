@@ -6,6 +6,8 @@ import CardContentDetailsPropsType from "@/types/CardContentDetailsPropsType";
 const CardContentDetails: FunctionComponent<CardContentDetailsPropsType> = ({
   count,
   title,
+  buttonText,
+  buttonFunction,
 }) => {
   return (
     <div className="flex items-center justify-between">
@@ -15,9 +17,16 @@ const CardContentDetails: FunctionComponent<CardContentDetailsPropsType> = ({
           {count} contacts
         </span>
       )}
-      <Button variant={"outline"} size={"sm"}>
-        Load more
-      </Button>
+      {buttonText && buttonFunction && (
+        <Button
+          variant="outline"
+          size="sm"
+          className="px-2 py-1 text-xs"
+          onClick={buttonFunction}
+        >
+          {buttonText}
+        </Button>
+      )}
     </div>
   );
 };

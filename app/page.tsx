@@ -9,7 +9,8 @@ import useContacts from "@/hooks/useContacts";
 import ContactType from "@/types/ContactType";
 
 const Page: React.FC = () => {
-  const { contacts, fetchContacts, isInitialLoading } = useContacts();
+  const { contacts, fetchContacts, isInitialLoading, isLoading } =
+    useContacts();
   const [selectedContactsId, setSelectedContactsId] = useState<Set<string>>(
     () => new Set(),
   );
@@ -60,6 +61,8 @@ const Page: React.FC = () => {
             onToggleContact={handleToggleContactSelection}
             selectedIds={selectedContactsId}
             isInitialLoading={isInitialLoading}
+            loadMoreContacts={fetchContacts}
+            loading={isLoading}
           />
         </Card>
         <footer className="mt-2 text-xs text-slate-500"></footer>

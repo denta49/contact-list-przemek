@@ -15,9 +15,9 @@ const CardContentComponent: FunctionComponent<
   onToggleContact,
   selectedIds,
   isInitialLoading,
+  loadMoreContacts,
+  loading,
 }) => {
-  console.log("isinitial", isInitialLoading);
-
   return (
     <CardContent className="pt-4 space-y-6">
       <section className="space-y-3">
@@ -42,6 +42,8 @@ const CardContentComponent: FunctionComponent<
         <CardContentDetails
           count={availableContacts.length}
           title={"All contacts"}
+          buttonText={"Load more"}
+          buttonFunction={loadMoreContacts}
         />
         {!isInitialLoading && availableContacts.length === 0 ? (
           <div className="rounded-md border border-dashed border-slate-800 bg-slate-900/40 px-3 py-4 text-xs text-slate-400">
@@ -50,16 +52,25 @@ const CardContentComponent: FunctionComponent<
           </div>
         ) : isInitialLoading ? (
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
-            {Array.from({ length: 8 }).map((_, index) => (
+            {Array.from({ length: 9 }).map((_, index) => (
               <ContactCardSkeleton key={index} />
             ))}
           </div>
         ) : (
-          <ContactsList
-            contacts={availableContacts}
-            onToggleContact={onToggleContact}
-            selectedIds={selectedIds}
-          />
+          <>
+            {loading && (
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
+                {Array.from({ length: 9 }).map((_, index) => (
+                  <ContactCardSkeleton key={index} />
+                ))}
+              </div>
+            )}
+            <ContactsList
+              contacts={availableContacts}
+              onToggleContact={onToggleContact}
+              selectedIds={selectedIds}
+            />
+          </>
         )}
       </section>
     </CardContent>
