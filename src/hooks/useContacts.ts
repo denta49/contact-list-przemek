@@ -38,7 +38,7 @@ const useContacts = (): UseContactsResultType => {
 
   useEffect(() => {
     fetchContacts();
-  }, []);
+  }, [fetchContacts]);
   return {
     contacts,
     isLoading,
