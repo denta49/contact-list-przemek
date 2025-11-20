@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 
-import Contact from "@/components/Contact";
+import ContactCard from "@/components/ContactCard";
 import Header from "@/components/Header";
 import {
   Card,
@@ -38,16 +38,22 @@ const Page: React.FC = () => {
           <CardContent className="pt-4">
             <section className="mb-4 flex items-center justify-between text-xs text-slate-300">
               <div className="flex items-center gap-2">
-                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-800 text-[0.7rem] font-semibold text-slate-100">
-                  {contacts &&
-                    contacts.map((contact) => (
-                      <Contact data={contact} key={contact.id} />
-                    ))}
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-slate-800 text-[0.7rem] font-semibold text-slate-100">
+                  {contacts.length}
                 </span>
                 <span className="text-slate-300">
                   Selected contacts:{" "}
                   <span className="font-semibold text-slate-100">0</span>
                 </span>
+                {contacts &&
+                  contacts.map((contact) => (
+                    <ContactCard
+                      contact={contact}
+                      onToggle={() => {}}
+                      selected={false}
+                      key={contact.id}
+                    />
+                  ))}
               </div>
             </section>
           </CardContent>
