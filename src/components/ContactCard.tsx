@@ -19,6 +19,7 @@ const ContactCard: FunctionComponent<ContactCardProps> = ({
         selected && "border-primary/70 ring-2 ring-primary/60 shadow-md",
       )}
     >
+      {/*Tutaj nie sprawdzam, czy zmienne istnieją, bo widze, ze wszedzie w bazie sa ok - gdyby jednak nie byly, to nalezy tu taka walidacje dodac*/}
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
         <div>
           <div className="text-sm font-semibold leading-tight">
