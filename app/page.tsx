@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 
+import Contact from "@/components/Contact";
 import Header from "@/components/Header";
-import PersonInfo from "@/components/PersonInfo";
 import {
   Card,
   CardHeader,
@@ -41,7 +41,7 @@ const Page: React.FC = () => {
                 <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-800 text-[0.7rem] font-semibold text-slate-100">
                   {contacts &&
                     contacts.map((contact) => (
-                      <PersonInfo data={contact} key={contact.id} />
+                      <Contact data={contact} key={contact.id} />
                     ))}
                 </span>
                 <span className="text-slate-300">
