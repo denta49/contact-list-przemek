@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 
+import { Button } from "@/components/ui/button";
 import CardContentDetailsPropsType from "@/types/CardContentDetailsPropsType";
 
 const CardContentDetails: FunctionComponent<CardContentDetailsPropsType> = ({
@@ -14,6 +15,9 @@ const CardContentDetails: FunctionComponent<CardContentDetailsPropsType> = ({
           {count} contacts
         </span>
       )}
+      <Button variant={"outline"} size={"sm"}>
+        Load more
+      </Button>
     </div>
   );
 };

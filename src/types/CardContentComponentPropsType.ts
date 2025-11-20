@@ -4,7 +4,8 @@ type CardContentComponentPropsType = {
   availableContacts: ContactType[];
   selectedContacts: ContactType[];
   onToggleContact: (id: string) => void;
-  selectedIds: string[];
+  selectedIds: Set<string>;
+  isInitialLoading: boolean;
 };
 
 export default CardContentComponentPropsType;

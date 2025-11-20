@@ -14,7 +14,7 @@ const ContactsList: FunctionComponent<ContactsListPropsType> = ({
         <ContactCard
           key={contact.id}
           contact={contact}
-          selected={selectedIds.includes(contact.id)}
+          selected={selectedIds.has(contact.id)}
           onToggle={() => onToggleContact(contact.id)}
         />
       ))}

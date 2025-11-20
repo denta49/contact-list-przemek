@@ -3,7 +3,7 @@ import ContactType from "@/types/ContactType";
 type ContactsListPropsType = {
   contacts: ContactType[];
   onToggleContact: (id: string) => void;
-  selectedIds: string[];
+  selectedIds: Set<string>;
 };
 
 export default ContactsListPropsType;
