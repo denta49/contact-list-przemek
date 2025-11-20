@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useCallback, useMemo, useState } from "react";
 
 import CardContentComponent from "@/components/CardContentComponent";
 import CardTop from "@/components/CardTop";
@@ -9,6 +9,28 @@ import useContacts from "@/hooks/useContacts";
 
 const Page: React.FC = () => {
   const { contacts } = useContacts();
+  const [selectedContactsId, setSelectedContactsId] = useState<string[]>([]);
+
+  const handleToggleContactSelection = useCallback((contactId: string) => {
+    setSelectedContactsId((prevSelected) =>
+      prevSelected.includes(contactId)
+        ? prevSelected.filter((id) => id !== contactId)
+        : [...prevSelected, contactId],
+    );
+  }, []);
+
+  const availableContacts = useMemo(() => {
+    return contacts.filter(
+      (contact) => !selectedContactsId.includes(contact.id),
+    );
+  }, [selectedContactsId, contacts]);
+
+  const selectedContacts = useMemo(() => {
+    return contacts.filter((contact) =>
+      selectedContactsId.includes(contact.id),
+    );
+  }, [selectedContactsId, contacts]);
+
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-50">
       <div className="mx-auto flex max-w-5xl flex-col gap-8 px-4 py-10">
@@ -19,7 +41,12 @@ const Page: React.FC = () => {
         />
         <Card className="border-slate-800/70 bg-slate-900/60 shadow-xl shadow-black/40 backdrop-blur">
           <CardTop title={"Contacts"} description={"Pick Your contacts"} />
-          <CardContentComponent contacts={contacts} selectedContacts={[]} />
+          <CardContentComponent
+            availableContacts={availableContacts}
+            selectedContacts={selectedContacts}
+            onToggleContact={handleToggleContactSelection}
+            selectedIds={selectedContactsId}
+          />
         </Card>
         <footer className="mt-2 text-xs text-slate-500"></footer>
       </div>

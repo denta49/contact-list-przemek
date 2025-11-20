@@ -2,7 +2,7 @@ import ContactType from "@/types/ContactType";
 
 type ContactCardProps = {
   contact: ContactType;
-  onToggle: () => void;
+  onToggle: (id: string) => void;
   selected: boolean;
 };
 

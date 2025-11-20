@@ -1,8 +1,10 @@
 import ContactType from "@/types/ContactType";
 
 type CardContentComponentPropsType = {
-  contacts: ContactType[];
+  availableContacts: ContactType[];
   selectedContacts: ContactType[];
+  onToggleContact: (id: string) => void;
+  selectedIds: string[];
 };
 
 export default CardContentComponentPropsType;

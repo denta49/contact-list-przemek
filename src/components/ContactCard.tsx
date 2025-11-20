@@ -12,11 +12,12 @@ const ContactCard: FunctionComponent<ContactCardProps> = ({
   return (
     <Card
       role={"button"}
+      // @ts-ignore
       onClick={onToggle}
       className={cn(
         "cursor-pointer border border-slate-800 bg-slate-900/60 transition-all",
         "hover:border-slate-600 hover:bg-slate-900 hover:shadow-sm",
-        selected && "border-primary/70 ring-2 ring-primary/60 shadow-md",
+        selected && "border-primary/70 ring-2 ring-primary/60 shadow-red-600",
       )}
     >
       {/*Tutaj nie sprawdzam, czy zmienne istnieją, bo widze, ze wszedzie w bazie sa ok - gdyby jednak nie byly, to nalezy tu taka walidacje dodac*/}

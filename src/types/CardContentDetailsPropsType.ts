@@ -1,7 +1,5 @@
-import ContactType from "@/types/ContactType";
-
 type CardContentDetailsPropsType = {
-  contacts: ContactType[];
+  count: number;
   title: string;
 };
 
