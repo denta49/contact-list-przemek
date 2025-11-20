@@ -8,6 +8,7 @@ type CardContentComponentPropsType = {
   isInitialLoading: boolean;
   loadMoreContacts: () => void;
   loading: boolean;
+  error: Error | null;
 };
 
 export default CardContentComponentPropsType;

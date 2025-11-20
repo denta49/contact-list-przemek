@@ -3,6 +3,7 @@ import React, { FunctionComponent } from "react";
 import CardContentDetails from "@/components/CardContentDetails";
 import ContactCardSkeleton from "@/components/ContactCardSkeleton";
 import ContactsList from "@/components/ContactsList";
+import ErrorCard from "@/components/ErrorCard";
 import { CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import CardContentComponentPropsType from "@/types/CardContentComponentPropsType";
@@ -17,6 +18,7 @@ const CardContentComponent: FunctionComponent<
   isInitialLoading,
   loadMoreContacts,
   loading,
+  error,
 }) => {
   return (
     <CardContent className="pt-4 space-y-6">
@@ -45,6 +47,7 @@ const CardContentComponent: FunctionComponent<
           buttonText={"Load more"}
           buttonFunction={loadMoreContacts}
         />
+        {error && <ErrorCard errorMessage={error.message} />}
         {!isInitialLoading && availableContacts.length === 0 ? (
           <div className="rounded-md border border-dashed border-slate-800 bg-slate-900/40 px-3 py-4 text-xs text-slate-400">
             No contacts loaded yet. Use the button above to fetch a batch from
