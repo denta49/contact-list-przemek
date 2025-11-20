@@ -1,3 +1,16 @@
+# Cześć!
+
+W tym repo znajdziesz wykonane przeze mnie zadanie rekrutacyjne. Ogólnie zrobiłem tak, że zdecydowałem się użyć swojego setupu projektowego, tzn. repo sklonowane używało cra, natomiast w celu UI, performancu i możliwości hostowania na Vercelu dema użyłem swojego template - tutaj dochodzi też jakość kodu, bo mam tu dodane lintery i husky. Mam nadzieję, że to nie problem. Projekt standardowo odpala się komendą `next dev`.
+
+Co do zadania:
+
+- w zadaniu było napisane, żeby mieć na względzie UX, więc button do pobierania kontaktów jest na górze listy, nie na dole (bo tak to by trzeba było scrollować co chwile żeby zobaczyć jakie się ma selected a jakie nie)
+- w celu optymalizacji zastosowałem zamiast list sety;
+- w startowym repo było todo dla logiki w głównym komponencie, ale rozdzieliłem to na mniejsze komponenty w myśl SRP i DRY - zrobiło się trochę props bubblingu, ale myślę, że warto - można by to rozwiązać zustandem albo contextem.
+- AI używałem w sposób umiarkowany, głównie ja pisałem logikę, ale generowanie tailwindowego UI to już AI - robi to bardzo dobrze, nie jest to istotne z punktu widzenia bezpieczeństwa itd więc uznałem, ze mogę to powierzyć AI.
+
+Będę wdzięczny za feedback, pozdrawiam!
+
 # TODO
 
 Please do not fork the repo, clone it and put it in your own github / save it locally.
