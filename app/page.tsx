@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
 
+import CardContentComponent from "@/components/CardContentComponent";
 import CardTop from "@/components/CardTop";
-import ContactCard from "@/components/ContactCard";
 import Header from "@/components/Header";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import useContacts from "@/hooks/useContacts";
 
 const Page: React.FC = () => {
@@ -19,28 +19,7 @@ const Page: React.FC = () => {
         />
         <Card className="border-slate-800/70 bg-slate-900/60 shadow-xl shadow-black/40 backdrop-blur">
           <CardTop title={"Contacts"} description={"Pick Your contacts"} />
-          <CardContent className="pt-4">
-            <section className="mb-4 flex items-center justify-between text-xs text-slate-300">
-              <div className="flex items-center gap-2">
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-slate-800 text-[0.7rem] font-semibold text-slate-100">
-                  {contacts.length}
-                </span>
-                <span className="text-slate-300">
-                  Selected contacts:{" "}
-                  <span className="font-semibold text-slate-100">0</span>
-                </span>
-                {contacts &&
-                  contacts.map((contact) => (
-                    <ContactCard
-                      contact={contact}
-                      onToggle={() => {}}
-                      selected={false}
-                      key={contact.id}
-                    />
-                  ))}
-              </div>
-            </section>
-          </CardContent>
+          <CardContentComponent contacts={contacts} selectedContacts={[]} />
         </Card>
         <footer className="mt-2 text-xs text-slate-500"></footer>
       </div>

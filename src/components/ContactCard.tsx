@@ -22,7 +22,7 @@ const ContactCard: FunctionComponent<ContactCardProps> = ({
       {/*Tutaj nie sprawdzam, czy zmienne istnieją, bo widze, ze wszedzie w bazie sa ok - gdyby jednak nie byly, to nalezy tu taka walidacje dodac*/}
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
         <div>
-          <div className="text-sm font-semibold leading-tight">
+          <div className="text-sm font-semibold leading-tight text-slate-200">
             {contact.firstNameLastName}
           </div>
           <div className="mt-1 flex items-center gap-1 text-xs text-slate-400">
