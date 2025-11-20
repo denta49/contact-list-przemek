@@ -2,6 +2,7 @@
 import React from "react";
 
 import Header from "@/components/Header";
+import PersonInfo from "@/components/PersonInfo";
 import {
   Card,
   CardHeader,
@@ -9,8 +10,10 @@ import {
   CardDescription,
   CardContent,
 } from "@/components/ui/card";
+import useContacts from "@/hooks/useContacts";
 
 const Page: React.FC = () => {
+  const { contacts } = useContacts();
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-50">
       <div className="mx-auto flex max-w-5xl flex-col gap-8 px-4 py-10">
@@ -36,7 +39,10 @@ const Page: React.FC = () => {
             <section className="mb-4 flex items-center justify-between text-xs text-slate-300">
               <div className="flex items-center gap-2">
                 <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-800 text-[0.7rem] font-semibold text-slate-100">
-                  #
+                  {contacts &&
+                    contacts.map((contact) => (
+                      <PersonInfo data={contact} key={contact.id} />
+                    ))}
                 </span>
                 <span className="text-slate-300">
                   Selected contacts:{" "}
